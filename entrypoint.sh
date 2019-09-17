@@ -10,6 +10,10 @@ NEUTRAL_EXIT_CODE=0
 echo "Checking if comment contains '/rebase' command..."
 (jq -r ".comment.body" "$GITHUB_EVENT_PATH" | grep -Fq "/rebase") || exit $NEUTRAL_EXIT_CODE
 
+# skip if not a PR-269,7 +269,7 @@ var CommentManager = (function() {
+		                try {
+(jq -r ".comment.body" "$GITHUB_EVENT_PATH" | grep -Fq "/rebase") || exit $NEUTRAL_EXIT_CODE
+
 # skip if not a PR
 echo "Checking if issue is a pull request..."
 (jq -r ".issue.pull_request.url" "$GITHUB_EVENT_PATH") || exit $NEUTRAL_EXIT_CODE
